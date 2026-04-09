@@ -1,0 +1,31 @@
+{
+  "siteName": "SkyFare",
+  "tagline": "Best Travelling Experience",
+  "logoUrl": "/logo.png",
+  "faviconUrl": "/favicon.png",
+  "tfn": "866-699-8687",
+  "email": "support@skyfareinfo.com",
+  "workingHours": "Mon-Sun 24/7",
+  "billingAddress": {
+    "company": "SkyFare, Inc.",
+    "street": "C 177(A) IND AREA, SECTOR 74",
+    "city": "Mohali",
+    "state": "Punjab",
+    "zip": "160074",
+    "country": "India"
+  },
+  "copyrightText": "© 2006-{year} SkyFare, Inc. All rights reserved.",
+  "socialLinks": {
+    "facebook": "",
+    "twitter": "",
+    "instagram": "",
+    "linkedin": ""
+  },
+  "colors": {
+    "headerBg": "#ffffff",
+    "headerText": "#19191a",
+    "footerBg": "#3f495a",
+    "footerText": "#fafafa"
+  },
+  "siteUrl": "https://skyfareinfo.com"
+}

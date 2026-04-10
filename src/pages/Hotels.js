@@ -104,7 +104,7 @@ function Hotels() {
     },
     {
       id: 7,
-      image: 'https://images.unsplash.com/photo-1596178060810-e5a1d4e8c78f?w=800&q=80',
+      image: 'https://i.ibb.co/hRbNjh3V/swapnil-bapat-s-J7p-Yy-JFyu-A-unsplash.jpg',
       title: 'Marina Bay Sands',
       description: 'Iconic hotel with rooftop infinity pool and stunning city views',
       price: '$420/night',

@@ -1185,13 +1185,13 @@ function FlightResults() {
             </div>
             <div className="search-details">
               <span className="detail-item">
-                <Calendar size={14} />
+                <Calendar size={24} />
                 {searchParams.departDate || 'Select date'}
                 {isRoundTrip && searchParams.returnDate && <> — {searchParams.returnDate}</>}
               </span>
               <span className="detail-divider">•</span>
               <span className="detail-item">
-                <Users size={14} />
+                <Users size={24} />
                 {searchParams.passengers?.total || 1} traveler{(searchParams.passengers?.total || 1) > 1 ? 's' : ''}
               </span>
               <span className="detail-divider">•</span>
@@ -1437,7 +1437,7 @@ function FlightResults() {
               <button className={`stat-card ${sortBy === 'best' ? 'active' : ''}`} onClick={() => setSortBy('best')}>
                 <Star size={16} />
                 <div className="stat-info">
-                  <span className="stat-label">Best</span>
+                  <span className="stat-labels">Best</span>
                   <span className="stat-value">${flightStats.best?.price}</span>
                   <span className="stat-detail">{flightStats.best?.duration}</span>
                 </div>
@@ -1445,14 +1445,14 @@ function FlightResults() {
               <button className={`stat-card ${sortBy === 'price' ? 'active' : ''}`} onClick={() => setSortBy('price')}>
                 <TrendingDown size={16} />
                 <div className="stat-info">
-                  <span className="stat-label">Cheapest</span>
+                  <span className="stat-labels">Cheapest</span>
                   <span className="stat-value">${flightStats.cheapest?.price}</span>
                 </div>
               </button>
               <button className={`stat-card ${sortBy === 'duration' ? 'active' : ''}`} onClick={() => setSortBy('duration')}>
                 <Zap size={16} />
                 <div className="stat-info">
-                  <span className="stat-label">Fastest</span>
+                  <span className="stat-labels">Fastest</span>
                   <span className="stat-value">{flightStats.quickest?.duration}</span>
                 </div>
               </button>

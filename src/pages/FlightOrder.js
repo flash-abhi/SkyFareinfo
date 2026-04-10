@@ -835,7 +835,7 @@ function FlightOrder() {
               {!promoApplied && (
                 <div className="promo-section">
                   <div className="promo-input">
-                    <Gift size={18} />
+                    <Gift size={22} />
                     <input
                       type="text"
                       placeholder="Promo code"
@@ -850,7 +850,7 @@ function FlightOrder() {
               <div className="price-total">
                 <span>Total</span>
                 <div className="total-amount">
-                  <span className="currency">USD</span>
+                  <span className="currency">USD &nbsp;</span>
                   <span className="amount">${calculateFinalTotal().toFixed(2)}</span>
                 </div>
               </div>

@@ -77,7 +77,7 @@ function Packages() {
     },
     {
       name: 'Jamaica',
-      image: 'https://images.unsplash.com/photo-1589815562957-a0abaa6d0f5e?w=800',
+      image: 'https://i.ibb.co/hR0Z12L1/am-taufik-gd-K3a4t3vl-A-unsplash.jpg',
       price: 1199,
       nights: 7,
       rating: 4.6

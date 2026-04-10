@@ -492,9 +492,12 @@
 }
 
 .benefit-item {
+  display: flex;
+  flex-direction: column;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   padding: 2rem;
+  color: rgb(48, 47, 47);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
@@ -502,6 +505,7 @@
 
 .benefit-item:hover {
   background: rgba(255, 255, 255, 0.25);
+  color: white;
   transform: translateY(-5px);
 }
 

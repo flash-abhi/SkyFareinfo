@@ -35,7 +35,7 @@ function Flights() {
       toCode: 'LHR',
       price: 450,
       airline: 'British Airways',
-      airlineLogo: 'british-airways.svg',
+      airlineLogo: 'https://i.ibb.co/B58HfmrD/british-ariway.png',
       trend: 'down'
     },
     {
@@ -45,7 +45,7 @@ function Flights() {
       toCode: 'NRT',
       price: 680,
       airline: 'Japan Airlines',
-      airlineLogo: 'jal.svg',
+      airlineLogo: 'https://i.ibb.co/Rpvyz9xg/japan-airlinees.png',
       trend: 'up'
     },
     {
@@ -55,7 +55,7 @@ function Flights() {
       toCode: 'BOM',
       price: 320,
       airline: 'Emirates',
-      airlineLogo: 'emirates.svg',
+      airlineLogo: 'https://i.ibb.co/W72nbhd/emarites.jpg',
       trend: 'down'
     },
     {
@@ -65,7 +65,7 @@ function Flights() {
       toCode: 'JFK',
       price: 520,
       airline: 'Air France',
-      airlineLogo: 'air-france.svg',
+      airlineLogo: 'https://i.ibb.co/3LNQH9y/airfrance.png',
       trend: 'stable'
     },
     {
@@ -75,7 +75,7 @@ function Flights() {
       toCode: 'SYD',
       price: 420,
       airline: 'Singapore Airlines',
-      airlineLogo: 'singapore.svg',
+      airlineLogo: 'https://i.ibb.co/QvnsxTb7/singapore.jpg',
       trend: 'down'
     },
     {
@@ -85,7 +85,7 @@ function Flights() {
       toCode: 'DXB',
       price: 380,
       airline: 'Emirates',
-      airlineLogo: 'emirates.svg',
+      airlineLogo: 'https://i.ibb.co/W72nbhd/emarites.jpg',
       trend: 'up'
     }
   ];
@@ -537,7 +537,7 @@ function Flights() {
                 <div className="route-details">
                   <div className="airline-info">
                     <img 
-                      src={`/airlines/${route.airlineLogo}`} 
+                      src={`${route.airlineLogo}`} 
                       alt={route.airline}
                       className="airline-logo"
                       onError={(e) => {

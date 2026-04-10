@@ -44,10 +44,10 @@ const logoUpload = multer({
 let adminUsers = [
   {
     id: 1,
-    name: 'Admin',
-    email: 'info@flyairlinebooking.com',
-    password: '$2a$10$BaiQ2Njj1a3jsNLN9YYruu0wPKMzEQdvh0vM1iLMMhnPHhqt1TAky' // Hash: 'admin123'
-  }
+    name: "Admin",
+    email: "support@skyfareinfo.com",
+    password: "$2a$10$BaiQ2Njj1a3jsNLN9YYruu0wPKMzEQdvh0vM1iLMMhnPHhqt1TAky", // Hash: 'admin123'
+  },
 ];
 
 // Function to update admin password (for password reset)

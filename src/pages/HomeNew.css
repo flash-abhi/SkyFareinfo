@@ -7,15 +7,6 @@
 .scroll-animate { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .scroll-animate.animate-in { opacity: 1; transform: translateY(0); }
 
-/* ===== STICKY CALL BUTTON ===== */
-.sticky-call-button { position: fixed; bottom: 24px; right: 24px; z-index: 1000; display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--success), #059669); color: #fff; padding: 12px 20px; border-radius: 50px; text-decoration: none; box-shadow: 0 8px 30px rgba(16,185,129,0.4); transition: var(--transition); }
-.sticky-call-button:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(16,185,129,0.5); }
-.call-pulse { position: absolute; inset: -4px; border-radius: 50px; border: 2px solid var(--success); animation: pulse-ring 2s infinite; }
-@keyframes pulse-ring { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.15); } }
-.call-text { display: flex; flex-direction: column; line-height: 1.2; }
-.call-label { font-size: 11px; opacity: 0.85; font-weight: 500; }
-.call-number { font-size: 15px; font-weight: 700; }
-
 /* ===== HERO SECTION ===== */
 .hero-section { position: relative; min-height: 750px; display: flex; align-items: center; overflow: hidden; }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
@@ -276,7 +267,5 @@
 @media (max-width: 480px) {
   .hero-title { font-size: 28px; }
   .stat-card h3 { font-size: 28px; }
-  .sticky-call-button .call-text { display: none; }
-  .sticky-call-button { padding: 14px; border-radius: 50%; }
   .deal-price { font-size: 24px; }
 }

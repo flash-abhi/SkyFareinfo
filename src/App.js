@@ -7,6 +7,8 @@ import { ContactProvider } from './context/ContactContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import FloatingCallBanner from "./components/FloatingCallBanner";
+import StickyCallButton from './components/StickyCallButton';
 import HomeNew from './pages/HomeNew';
 import Flights from './pages/Flights';
 import Booking from './pages/Booking';
@@ -73,7 +75,9 @@ function AppContent() {
   return (
     <div className="App">
       <Helmet>
-        <title>SkyFare - Cheap Flights & Travel Deals | #1 Travel Platform</title>
+        <title>
+          SkyFare - Cheap Flights & Travel Deals | #1 Travel Platform
+        </title>
         <link rel="icon" href="/favicon.png" type="image/*" />
       </Helmet>
       <ScrollToTop />
@@ -99,7 +103,10 @@ function AppContent() {
         <Route path="/airlines" element={<AirlinesDirectory />} />
         <Route path="/airlines/:airlineSlug" element={<AirlinePage />} />
         <Route path="/airline-customer-service" element={<AirlineSupport />} />
-        <Route path="/airline-customer-service-number" element={<AirlineCustomerServiceNumber />} />
+        <Route
+          path="/airline-customer-service-number"
+          element={<AirlineCustomerServiceNumber />}
+        />
         <Route path="/about" element={<About />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
@@ -113,6 +120,8 @@ function AppContent() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
+      {!isAdminRoute && <StickyCallButton />}
+      {!isAdminRoute && <FloatingCallBanner />}
       {/* {!isAdminRoute && <AirlineLogos />} */}
       {!isAdminRoute && <Footer />}
     </div>

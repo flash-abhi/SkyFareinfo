@@ -280,6 +280,7 @@ function Flights() {
 
   return (
     <div className="flights-page">
+      
       <div className="hero-section">
         <div className="container">
           <h1><Plane size={40} /> Find Your Perfect Flight</h1>

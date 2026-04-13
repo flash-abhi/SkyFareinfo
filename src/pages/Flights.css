@@ -757,6 +757,7 @@
   .trip-type-selector {
     gap: 12px;
     font-size: 1rem;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     padding-bottom: 12px;
@@ -918,7 +919,7 @@
   }
 
   .trip-type-selector {
-    flex-direction: column;
+    flex-direction: row;
     align-items: stretch;
   }
 

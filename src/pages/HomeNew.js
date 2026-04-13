@@ -105,40 +105,59 @@ function HomeNew() {
   const totalTravelers = searchData.passengers.adults + searchData.passengers.children + searchData.passengers.infants;
   return (
     <div className="home-new">
-      {/* Sticky Call Button */}
-      <a href={`tel:${(contactSettings.tfn || '+1-888-859-0441').replace(/[^0-9+]/g, '')}`} className="sticky-call-button">
-        <div className="call-pulse"></div>
-        <PhoneCall size={22} />
-        <span className="call-text">
-          <span className="call-label">Call to Book</span>
-          <span className="call-number">{contactSettings.tfn || '+1-888-859-0441'}</span>
-        </span>
-      </a>
-
       {/* ===== HERO SECTION ===== */}
       <section className="hero-section">
         <div className="hero-bg">
           <div className="hero-bg-image"></div>
           <div className="hero-gradient-overlay"></div>
           <div className="hero-particles">
-            {[...Array(20)].map((_, i) => (<div key={i} className={`particle particle-${i + 1}`}></div>))}
+            {[...Array(20)].map((_, i) => (
+              <div key={i} className={`particle particle-${i + 1}`}></div>
+            ))}
           </div>
         </div>
 
         <div className="hero-inner container">
           <div className="hero-left">
-            <div className="hero-badge scroll-animate"><Sparkles size={16} /><span>#1 Travel Booking Platform</span></div>
-            <h1 className="hero-title scroll-animate">Your Dream Trip<br/><span className="hero-highlight">Starts Here</span></h1>
-            <p className="hero-subtitle scroll-animate">Compare prices across 500+ airlines & save up to 40% on flights, hotels, cruises & vacation packages.</p>
+            <div className="hero-badge scroll-animate">
+              <Sparkles size={16} />
+              <span>#1 Travel Booking Platform</span>
+            </div>
+            <h1 className="hero-title scroll-animate">
+              Your Dream Trip
+              <br />
+              <span className="hero-highlight">Starts Here</span>
+            </h1>
+            <p className="hero-subtitle scroll-animate">
+              Compare prices across 500+ airlines & save up to 40% on flights,
+              hotels, cruises & vacation packages.
+            </p>
             <div className="hero-trust-row scroll-animate">
-              <div className="trust-item"><CheckCircle size={18} /><span>Free Cancellation</span></div>
-              <div className="trust-item"><Shield size={18} /><span>Price Match Guarantee</span></div>
-              <div className="trust-item"><Headphones size={18} /><span>24/7 Expert Support</span></div>
+              <div className="trust-item">
+                <CheckCircle size={18} />
+                <span>Free Cancellation</span>
+              </div>
+              <div className="trust-item">
+                <Shield size={18} />
+                <span>Price Match Guarantee</span>
+              </div>
+              <div className="trust-item">
+                <Headphones size={18} />
+                <span>24/7 Expert Support</span>
+              </div>
             </div>
             <div className="hero-cta-row scroll-animate">
-              <a href={`tel:${(contactSettings.tfn || '+1-888-859-0441').replace(/[^0-9+]/g, '')}`} className="hero-phone-btn">
+              <a
+                href={`tel:${(contactSettings.tfn || "+1-888-859-0441").replace(/[^0-9+]/g, "")}`}
+                className="hero-phone-btn"
+              >
                 <PhoneCall size={20} />
-                <div><span className="phone-label">Talk to an Expert</span><span className="phone-num">{contactSettings.tfn || '+1-888-859-0441'}</span></div>
+                <div>
+                  <span className="phone-label">Talk to an Expert</span>
+                  <span className="phone-num">
+                    {contactSettings.tfn || "+1-888-859-0441"}
+                  </span>
+                </div>
               </a>
             </div>
           </div>
@@ -147,103 +166,523 @@ function HomeNew() {
             <div className="search-widget">
               <div className="search-tabs">
                 {[
-                  { key: 'flights', icon: Plane, label: 'Flights' },
-                  { key: 'hotels', icon: Hotel, label: 'Hotels' },
-                  { key: 'cruises', icon: Ship, label: 'Cruises' },
-                  { key: 'packages', icon: Package, label: 'Packages' },
-                ].map(tab => (
-                  <button key={tab.key} className={`search-tab ${activeTab === tab.key ? 'active' : ''}`} onClick={() => setActiveTab(tab.key)}>
-                    <tab.icon size={18} /><span>{tab.label}</span>
+                  { key: "flights", icon: Plane, label: "Flights" },
+                  { key: "hotels", icon: Hotel, label: "Hotels" },
+                  { key: "cruises", icon: Ship, label: "Cruises" },
+                  { key: "packages", icon: Package, label: "Packages" },
+                ].map((tab) => (
+                  <button
+                    key={tab.key}
+                    className={`search-tab ${activeTab === tab.key ? "active" : ""}`}
+                    onClick={() => setActiveTab(tab.key)}
+                  >
+                    <tab.icon size={18} />
+                    <span>{tab.label}</span>
                   </button>
                 ))}
               </div>
               <div className="search-body">
-                {activeTab === 'flights' && (
+                {activeTab === "flights" && (
                   <>
                     <div className="trip-toggle">
-                      <button className={tripType === 'roundtrip' ? 'active' : ''} onClick={() => setTripType('roundtrip')}>Round Trip</button>
-                      <button className={tripType === 'oneway' ? 'active' : ''} onClick={() => setTripType('oneway')}>One Way</button>
+                      <button
+                        className={tripType === "roundtrip" ? "active" : ""}
+                        onClick={() => setTripType("roundtrip")}
+                      >
+                        Round Trip
+                      </button>
+                      <button
+                        className={tripType === "oneway" ? "active" : ""}
+                        onClick={() => setTripType("oneway")}
+                      >
+                        One Way
+                      </button>
                     </div>
                     <div className="search-grid flights-grid">
-                      <div className="search-field route-field"><label><MapPin size={14} /> From</label>
-                        <AirportAutocomplete value={searchData.from} onChange={(value) => setSearchData({...searchData, from: value})} placeholder="Departure City" />
+                      <div className="search-field route-field">
+                        <label>
+                          <MapPin size={14} /> From
+                        </label>
+                        <AirportAutocomplete
+                          value={searchData.from}
+                          onChange={(value) =>
+                            setSearchData({ ...searchData, from: value })
+                          }
+                          placeholder="Departure City"
+                        />
                       </div>
-                      <button className="swap-btn" onClick={() => setSearchData({...searchData, from: searchData.to, to: searchData.from})}><ArrowLeftRight size={18} /></button>
-                      <div className="search-field route-field"><label><MapPin size={14} /> To</label>
-                        <AirportAutocomplete value={searchData.to} onChange={(value) => setSearchData({...searchData, to: value})} placeholder="Destination City" />
+                      <button
+                        className="swap-btn"
+                        onClick={() =>
+                          setSearchData({
+                            ...searchData,
+                            from: searchData.to,
+                            to: searchData.from,
+                          })
+                        }
+                      >
+                        <ArrowLeftRight size={18} />
+                      </button>
+                      <div className="search-field route-field">
+                        <label>
+                          <MapPin size={14} /> To
+                        </label>
+                        <AirportAutocomplete
+                          value={searchData.to}
+                          onChange={(value) =>
+                            setSearchData({ ...searchData, to: value })
+                          }
+                          placeholder="Destination City"
+                        />
                       </div>
-                      <div className="search-field"><label><Calendar size={14} /> Depart</label>
-                        <input type="date" value={searchData.departDate} onChange={(e) => setSearchData({...searchData, departDate: e.target.value})} min={new Date().toISOString().split('T')[0]} />
+                      <div className="search-field">
+                        <label>
+                          <Calendar size={14} /> Depart
+                        </label>
+                        <input
+                          type="date"
+                          value={searchData.departDate}
+                          onChange={(e) =>
+                            setSearchData({
+                              ...searchData,
+                              departDate: e.target.value,
+                            })
+                          }
+                          min={new Date().toISOString().split("T")[0]}
+                        />
                       </div>
-                      {tripType === 'roundtrip' && (
-                        <div className="search-field"><label><Calendar size={14} /> Return</label>
-                          <input type="date" value={searchData.returnDate} onChange={(e) => setSearchData({...searchData, returnDate: e.target.value})} min={searchData.departDate || new Date().toISOString().split('T')[0]} />
+                      {tripType === "roundtrip" && (
+                        <div className="search-field">
+                          <label>
+                            <Calendar size={14} /> Return
+                          </label>
+                          <input
+                            type="date"
+                            value={searchData.returnDate}
+                            onChange={(e) =>
+                              setSearchData({
+                                ...searchData,
+                                returnDate: e.target.value,
+                              })
+                            }
+                            min={
+                              searchData.departDate ||
+                              new Date().toISOString().split("T")[0]
+                            }
+                          />
                         </div>
                       )}
-                      <div className="search-field travelers-field"><label><Users size={14} /> Travelers</label>
-                        <div className="travelers-trigger" onClick={() => setShowPassengers(!showPassengers)}>{totalTravelers} Traveler{totalTravelers > 1 ? 's' : ''}, {searchData.cabinClass}</div>
-                        {showPassengers  && (
+                      <div className="search-field travelers-field">
+                        <label>
+                          <Users size={14} /> Travelers
+                        </label>
+                        <div
+                          className="travelers-trigger"
+                          onClick={() => setShowPassengers(!showPassengers)}
+                        >
+                          {totalTravelers} Traveler
+                          {totalTravelers > 1 ? "s" : ""},{" "}
+                          {searchData.cabinClass}
+                        </div>
+                        {showPassengers && (
                           <div className="travelers-dropdown">
-                            {[{ label: 'Adults', key: 'adults', sub: '12+ years' },{ label: 'Children', key: 'children', sub: '2-11 years' },{ label: 'Infants', key: 'infants', sub: 'Under 2' }].map(p => (
+                            {[
+                              {
+                                label: "Adults",
+                                key: "adults",
+                                sub: "12+ years",
+                              },
+                              {
+                                label: "Children",
+                                key: "children",
+                                sub: "2-11 years",
+                              },
+                              {
+                                label: "Infants",
+                                key: "infants",
+                                sub: "Under 2",
+                              },
+                            ].map((p) => (
                               <div key={p.key} className="traveler-row">
-                                <div><span className="traveler-label">{p.label}</span><span className="traveler-sub">{p.sub}</span></div>
-                                <div className="counter"><button className='btn-inc' onClick={() => updatePassengers(p.key, searchData.passengers[p.key] - 1)}>-</button><span className='inc-num'>{searchData.passengers[p.key]}</span><button className='btn-inc' onClick={() => updatePassengers(p.key, searchData.passengers[p.key] + 1)}>+</button></div>
+                                <div>
+                                  <span className="traveler-label">
+                                    {p.label}
+                                  </span>
+                                  <span className="traveler-sub">{p.sub}</span>
+                                </div>
+                                <div className="counter">
+                                  <button
+                                    className="btn-inc"
+                                    onClick={() =>
+                                      updatePassengers(
+                                        p.key,
+                                        searchData.passengers[p.key] - 1,
+                                      )
+                                    }
+                                  >
+                                    -
+                                  </button>
+                                  <span className="inc-num">
+                                    {searchData.passengers[p.key]}
+                                  </span>
+                                  <button
+                                    className="btn-inc"
+                                    onClick={() =>
+                                      updatePassengers(
+                                        p.key,
+                                        searchData.passengers[p.key] + 1,
+                                      )
+                                    }
+                                  >
+                                    +
+                                  </button>
+                                </div>
                               </div>
                             ))}
-                            <div className="cabin-select"><label>Cabin Class</label>
-                              <select value={searchData.cabinClass} onChange={(e) => setSearchData({...searchData, cabinClass: e.target.value})}>
-                                <option value="economy">Economy</option><option value="premium_economy">Premium Economy</option><option value="business">Business</option><option value="first">First Class</option>
+                            <div className="cabin-select">
+                              <label>Cabin Class</label>
+                              <select
+                                value={searchData.cabinClass}
+                                onChange={(e) =>
+                                  setSearchData({
+                                    ...searchData,
+                                    cabinClass: e.target.value,
+                                  })
+                                }
+                              >
+                                <option value="economy">Economy</option>
+                                <option value="premium_economy">
+                                  Premium Economy
+                                </option>
+                                <option value="business">Business</option>
+                                <option value="first">First Class</option>
                               </select>
                             </div>
-                            <button className="done-btn" onClick={() => setShowPassengers(false)}>Done</button>
+                            <button
+                              className="done-btn"
+                              onClick={() => setShowPassengers(false)}
+                            >
+                              Done
+                            </button>
                           </div>
                         )}
                       </div>
                     </div>
                   </>
                 )}
-                {activeTab === 'hotels' && (
+                {activeTab === "hotels" && (
                   <div className="search-grid hotels-grid">
-                    <div className="search-field"><label><MapPin size={14} /> Destination</label><input type="text" placeholder="City or Hotel Name" value={searchData.to} onChange={(e) => setSearchData({...searchData, to: e.target.value})} /></div>
-                    <div className="search-field"><label><Calendar size={14} /> Check-in</label><input type="date" value={searchData.departDate} onChange={(e) => setSearchData({...searchData, departDate: e.target.value})} min={new Date().toISOString().split('T')[0]} /></div>
-                    <div className="search-field"><label><Calendar size={14} /> Check-out</label><input type="date" value={searchData.returnDate} onChange={(e) => setSearchData({...searchData, returnDate: e.target.value})} min={searchData.departDate || new Date().toISOString().split('T')[0]} /></div>
-                    <div className="search-field"><label><Users size={14} /> Guests</label>
-                      <div className="travelers-trigger" onClick={() => setShowPassengers(!showPassengers)}>{searchData.passengers.adults + searchData.passengers.children} Guest(s)</div>
+                    <div className="search-field">
+                      <label>
+                        <MapPin size={14} /> Destination
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="City or Hotel Name"
+                        value={searchData.to}
+                        onChange={(e) =>
+                          setSearchData({ ...searchData, to: e.target.value })
+                        }
+                      />
+                    </div>
+                    <div className="search-field">
+                      <label>
+                        <Calendar size={14} /> Check-in
+                      </label>
+                      <input
+                        type="date"
+                        value={searchData.departDate}
+                        onChange={(e) =>
+                          setSearchData({
+                            ...searchData,
+                            departDate: e.target.value,
+                          })
+                        }
+                        min={new Date().toISOString().split("T")[0]}
+                      />
+                    </div>
+                    <div className="search-field">
+                      <label>
+                        <Calendar size={14} /> Check-out
+                      </label>
+                      <input
+                        type="date"
+                        value={searchData.returnDate}
+                        onChange={(e) =>
+                          setSearchData({
+                            ...searchData,
+                            returnDate: e.target.value,
+                          })
+                        }
+                        min={
+                          searchData.departDate ||
+                          new Date().toISOString().split("T")[0]
+                        }
+                      />
+                    </div>
+                    <div className="search-field">
+                      <label>
+                        <Users size={14} /> Guests
+                      </label>
+                      <div
+                        className="travelers-trigger"
+                        onClick={() => setShowPassengers(!showPassengers)}
+                      >
+                        {searchData.passengers.adults +
+                          searchData.passengers.children}{" "}
+                        Guest(s)
+                      </div>
                       {showPassengers && (
                         <div className="travelers-dropdown">
-                          <div className="traveler-row"><div><span className="traveler-label">Adults</span></div><div className="counter"><button onClick={() => updatePassengers('adults', searchData.passengers.adults - 1)}>-</button><span>{searchData.passengers.adults}</span><button onClick={() => updatePassengers('adults', searchData.passengers.adults + 1)}>+</button></div></div>
-                          <div className="traveler-row"><div><span className="traveler-label">Children</span></div><div className="counter"><button onClick={() => updatePassengers('children', searchData.passengers.children - 1)}>-</button><span>{searchData.passengers.children}</span><button onClick={() => updatePassengers('children', searchData.passengers.children + 1)}>+</button></div></div>
-                          <button className="done-btn" onClick={() => setShowPassengers(false)}>Done</button>
+                          <div className="traveler-row">
+                            <div>
+                              <span className="traveler-label">Adults</span>
+                            </div>
+                            <div className="counter">
+                              <button
+                                onClick={() =>
+                                  updatePassengers(
+                                    "adults",
+                                    searchData.passengers.adults - 1,
+                                  )
+                                }
+                              >
+                                -
+                              </button>
+                              <span>{searchData.passengers.adults}</span>
+                              <button
+                                onClick={() =>
+                                  updatePassengers(
+                                    "adults",
+                                    searchData.passengers.adults + 1,
+                                  )
+                                }
+                              >
+                                +
+                              </button>
+                            </div>
+                          </div>
+                          <div className="traveler-row">
+                            <div>
+                              <span className="traveler-label">Children</span>
+                            </div>
+                            <div className="counter">
+                              <button
+                                onClick={() =>
+                                  updatePassengers(
+                                    "children",
+                                    searchData.passengers.children - 1,
+                                  )
+                                }
+                              >
+                                -
+                              </button>
+                              <span>{searchData.passengers.children}</span>
+                              <button
+                                onClick={() =>
+                                  updatePassengers(
+                                    "children",
+                                    searchData.passengers.children + 1,
+                                  )
+                                }
+                              >
+                                +
+                              </button>
+                            </div>
+                          </div>
+                          <button
+                            className="done-btn"
+                            onClick={() => setShowPassengers(false)}
+                          >
+                            Done
+                          </button>
                         </div>
                       )}
                     </div>
                   </div>
                 )}
-                {activeTab === 'cruises' && (
+                {activeTab === "cruises" && (
                   <div className="search-grid cruises-grid">
-                    <div className="search-field"><label><Ship size={14} /> Destination</label><input type="text" placeholder="Caribbean, Alaska..." value={searchData.to} onChange={(e) => setSearchData({...searchData, to: e.target.value})} /></div>
-                    <div className="search-field"><label><Calendar size={14} /> Departure</label><input type="date" value={searchData.departDate} onChange={(e) => setSearchData({...searchData, departDate: e.target.value})} min={new Date().toISOString().split('T')[0]} /></div>
-                    <div className="search-field"><label><Users size={14} /> Travelers</label>
-                      <div className="travelers-trigger" onClick={() => setShowPassengers(!showPassengers)}>{searchData.passengers.adults + searchData.passengers.children} Traveler(s)</div>
+                    <div className="search-field">
+                      <label>
+                        <Ship size={14} /> Destination
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Caribbean, Alaska..."
+                        value={searchData.to}
+                        onChange={(e) =>
+                          setSearchData({ ...searchData, to: e.target.value })
+                        }
+                      />
+                    </div>
+                    <div className="search-field">
+                      <label>
+                        <Calendar size={14} /> Departure
+                      </label>
+                      <input
+                        type="date"
+                        value={searchData.departDate}
+                        onChange={(e) =>
+                          setSearchData({
+                            ...searchData,
+                            departDate: e.target.value,
+                          })
+                        }
+                        min={new Date().toISOString().split("T")[0]}
+                      />
+                    </div>
+                    <div className="search-field">
+                      <label>
+                        <Users size={14} /> Travelers
+                      </label>
+                      <div
+                        className="travelers-trigger"
+                        onClick={() => setShowPassengers(!showPassengers)}
+                      >
+                        {searchData.passengers.adults +
+                          searchData.passengers.children}{" "}
+                        Traveler(s)
+                      </div>
                       {showPassengers && (
                         <div className="travelers-dropdown">
-                          <div className="traveler-row"><div><span className="traveler-label">Adults</span></div><div className="counter"><button onClick={() => updatePassengers('adults', searchData.passengers.adults - 1)}>-</button><span>{searchData.passengers.adults}</span><button onClick={() => updatePassengers('adults', searchData.passengers.adults + 1)}>+</button></div></div>
-                          <div className="traveler-row"><div><span className="traveler-label">Children</span></div><div className="counter"><button onClick={() => updatePassengers('children', searchData.passengers.children - 1)}>-</button><span>{searchData.passengers.children}</span><button onClick={() => updatePassengers('children', searchData.passengers.children + 1)}>+</button></div></div>
-                          <button className="done-btn" onClick={() => setShowPassengers(false)}>Done</button>
+                          <div className="traveler-row">
+                            <div>
+                              <span className="traveler-label">Adults</span>
+                            </div>
+                            <div className="counter">
+                              <button
+                                onClick={() =>
+                                  updatePassengers(
+                                    "adults",
+                                    searchData.passengers.adults - 1,
+                                  )
+                                }
+                              >
+                                -
+                              </button>
+                              <span>{searchData.passengers.adults}</span>
+                              <button
+                                onClick={() =>
+                                  updatePassengers(
+                                    "adults",
+                                    searchData.passengers.adults + 1,
+                                  )
+                                }
+                              >
+                                +
+                              </button>
+                            </div>
+                          </div>
+                          <div className="traveler-row">
+                            <div>
+                              <span className="traveler-label">Children</span>
+                            </div>
+                            <div className="counter">
+                              <button
+                                onClick={() =>
+                                  updatePassengers(
+                                    "children",
+                                    searchData.passengers.children - 1,
+                                  )
+                                }
+                              >
+                                -
+                              </button>
+                              <span>{searchData.passengers.children}</span>
+                              <button
+                                onClick={() =>
+                                  updatePassengers(
+                                    "children",
+                                    searchData.passengers.children + 1,
+                                  )
+                                }
+                              >
+                                +
+                              </button>
+                            </div>
+                          </div>
+                          <button
+                            className="done-btn"
+                            onClick={() => setShowPassengers(false)}
+                          >
+                            Done
+                          </button>
                         </div>
                       )}
                     </div>
                   </div>
                 )}
-                {activeTab === 'packages' && (
+                {activeTab === "packages" && (
                   <div className="search-grid packages-grid">
-                    <div className="search-field"><label><MapPin size={14} /> From</label><AirportAutocomplete value={searchData.from} onChange={(value) => setSearchData({...searchData, from: value})} placeholder="Departure City" /></div>
-                    <div className="search-field"><label><MapPin size={14} /> To</label><AirportAutocomplete value={searchData.to} onChange={(value) => setSearchData({...searchData, to: value})} placeholder="Destination" /></div>
-                    <div className="search-field"><label><Calendar size={14} /> Depart</label><input type="date" value={searchData.departDate} onChange={(e) => setSearchData({...searchData, departDate: e.target.value})} min={new Date().toISOString().split('T')[0]} /></div>
-                    <div className="search-field"><label><Calendar size={14} /> Return</label><input type="date" value={searchData.returnDate} onChange={(e) => setSearchData({...searchData, returnDate: e.target.value})} min={searchData.departDate || new Date().toISOString().split('T')[0]} /></div>
+                    <div className="search-field">
+                      <label>
+                        <MapPin size={14} /> From
+                      </label>
+                      <AirportAutocomplete
+                        value={searchData.from}
+                        onChange={(value) =>
+                          setSearchData({ ...searchData, from: value })
+                        }
+                        placeholder="Departure City"
+                      />
+                    </div>
+                    <div className="search-field">
+                      <label>
+                        <MapPin size={14} /> To
+                      </label>
+                      <AirportAutocomplete
+                        value={searchData.to}
+                        onChange={(value) =>
+                          setSearchData({ ...searchData, to: value })
+                        }
+                        placeholder="Destination"
+                      />
+                    </div>
+                    <div className="search-field">
+                      <label>
+                        <Calendar size={14} /> Depart
+                      </label>
+                      <input
+                        type="date"
+                        value={searchData.departDate}
+                        onChange={(e) =>
+                          setSearchData({
+                            ...searchData,
+                            departDate: e.target.value,
+                          })
+                        }
+                        min={new Date().toISOString().split("T")[0]}
+                      />
+                    </div>
+                    <div className="search-field">
+                      <label>
+                        <Calendar size={14} /> Return
+                      </label>
+                      <input
+                        type="date"
+                        value={searchData.returnDate}
+                        onChange={(e) =>
+                          setSearchData({
+                            ...searchData,
+                            returnDate: e.target.value,
+                          })
+                        }
+                        min={
+                          searchData.departDate ||
+                          new Date().toISOString().split("T")[0]
+                        }
+                      />
+                    </div>
                   </div>
                 )}
-                <button className="search-btn" onClick={handleSearch}><Search size={20} /><span>Search {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</span></button>
+                <button className="search-btn" onClick={handleSearch}>
+                  <Search size={20} />
+                  <span>
+                    Search{" "}
+                    {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -254,12 +693,24 @@ function HomeNew() {
       <section className="services-strip">
         <div className="container">
           <div className="services-row">
-            <div className="service-pill"><Plane size={20} /> <span>500+ Airlines</span></div>
-            <div className="service-pill"><Hotel size={20} /> <span>1M+ Hotels</span></div>
-            <div className="service-pill"><Ship size={20} /> <span>Luxury Cruises</span></div>
-            <div className="service-pill"><Package size={20} /> <span>Vacation Packages</span></div>
-            <div className="service-pill"><CreditCard size={20} /> <span>Secure Payment</span></div>
-            <div className="service-pill"><Headphones size={20} /> <span>24/7 Support</span></div>
+            <div className="service-pill">
+              <Plane size={20} /> <span>500+ Airlines</span>
+            </div>
+            <div className="service-pill">
+              <Hotel size={20} /> <span>1M+ Hotels</span>
+            </div>
+            <div className="service-pill">
+              <Ship size={20} /> <span>Luxury Cruises</span>
+            </div>
+            <div className="service-pill">
+              <Package size={20} /> <span>Vacation Packages</span>
+            </div>
+            <div className="service-pill">
+              <CreditCard size={20} /> <span>Secure Payment</span>
+            </div>
+            <div className="service-pill">
+              <Headphones size={20} /> <span>24/7 Support</span>
+            </div>
           </div>
         </div>
       </section>
@@ -269,13 +720,29 @@ function HomeNew() {
         <div className="container">
           <div className="call-banner-inner">
             <div className="call-banner-left">
-              <div className="call-banner-icon"><PhoneCall size={32} /></div>
-              <div><h3>🇺🇸 🇨🇦 Exclusive Phone-Only Deals</h3><p>Save extra when you book by phone — unpublished fares available!</p></div>
+              <div className="call-banner-icon">
+                <PhoneCall size={32} />
+              </div>
+              <div>
+                <h3>🇺🇸 🇨🇦 Exclusive Phone-Only Deals</h3>
+                <p>
+                  Save extra when you book by phone — unpublished fares
+                  available!
+                </p>
+              </div>
             </div>
             <div className="call-banner-right">
-              <a href={`tel:${(contactSettings.tfn || '+1-888-859-0441').replace(/[^0-9+]/g, '')}`} className="call-banner-btn">
+              <a
+                href={`tel:${(contactSettings.tfn || "+1-888-859-0441").replace(/[^0-9+]/g, "")}`}
+                className="call-banner-btn"
+              >
                 <PhoneCall size={20} />
-                <div><span className="banner-phone">{contactSettings.tfn || '+1-888-859-0441'}</span><span className="banner-avail">Toll-Free · 24/7</span></div>
+                <div>
+                  <span className="banner-phone">
+                    {contactSettings.tfn || "+1-888-859-0441"}
+                  </span>
+                  <span className="banner-avail">Toll-Free · 24/7</span>
+                </div>
               </a>
             </div>
           </div>
@@ -285,16 +752,49 @@ function HomeNew() {
       {/* ===== POPULAR ROUTES ===== */}
       <section className="popular-routes-section scroll-animate">
         <div className="container">
-          <div className="section-head"><div><h2>Popular Flight Routes</h2><p>Most searched flights by our travelers</p></div>
-            <button className="see-all-btn" onClick={() => navigate('/flights')}>See All Routes <ArrowRight size={16} /></button>
+          <div className="section-head">
+            <div>
+              <h2>Popular Flight Routes</h2>
+              <p>Most searched flights by our travelers</p>
+            </div>
+            <button
+              className="see-all-btn"
+              onClick={() => navigate("/flights")}
+            >
+              See All Routes <ArrowRight size={16} />
+            </button>
           </div>
           <div className="routes-grid">
             {popularRoutes.map((route, idx) => (
-              <div key={idx} className="route-card" onClick={() => navigate('/flights')}>
-                <div className="route-img"><img src={route.image} alt={`${route.from} to ${route.to}`} loading="lazy" /><div className="route-overlay"><Navigation size={16} /></div></div>
+              <div
+                key={idx}
+                className="route-card"
+                onClick={() => navigate("/flights")}
+              >
+                <div className="route-img">
+                  <img
+                    src={route.image}
+                    alt={`${route.from} to ${route.to}`}
+                    loading="lazy"
+                  />
+                  <div className="route-overlay">
+                    <Navigation size={16} />
+                  </div>
+                </div>
                 <div className="route-info">
-                  <div className="route-path"><span className="route-city">{route.from}</span><div className="route-arrow"><Plane size={14} /></div><span className="route-city">{route.to}</span></div>
-                  <div className="route-meta"><span className="route-airline">{route.airline}</span><span className="route-price">from <strong>${route.price}</strong></span></div>
+                  <div className="route-path">
+                    <span className="route-city">{route.from}</span>
+                    <div className="route-arrow">
+                      <Plane size={14} />
+                    </div>
+                    <span className="route-city">{route.to}</span>
+                  </div>
+                  <div className="route-meta">
+                    <span className="route-airline">{route.airline}</span>
+                    <span className="route-price">
+                      from <strong>${route.price}</strong>
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -305,19 +805,55 @@ function HomeNew() {
       {/* ===== EXCLUSIVE DEALS ===== */}
       <section className="deals-section scroll-animate">
         <div className="container">
-          <div className="section-head"><div><h2>Exclusive Travel Deals</h2><p>Hand-picked destinations at unbeatable prices</p></div>
-            <button className="see-all-btn" onClick={() => navigate('/flights')}>View All Deals <ArrowRight size={16} /></button>
+          <div className="section-head">
+            <div>
+              <h2>Exclusive Travel Deals</h2>
+              <p>Hand-picked destinations at unbeatable prices</p>
+            </div>
+            <button
+              className="see-all-btn"
+              onClick={() => navigate("/flights")}
+            >
+              View All Deals <ArrowRight size={16} />
+            </button>
           </div>
           <div className="deals-grid">
             {exclusiveDeals.map((deal, idx) => (
-              <div key={idx} className="deal-card" onClick={() => navigate('/flights')}>
-                <div className="deal-image"><img src={deal.image} alt={deal.destination} loading="lazy" /><div className="deal-badge">{deal.badge}</div><div className="deal-save">Save {Math.round(((deal.originalPrice - deal.price) / deal.originalPrice) * 100)}%</div></div>
+              <div
+                key={idx}
+                className="deal-card"
+                onClick={() => navigate("/flights")}
+              >
+                <div className="deal-image">
+                  <img src={deal.image} alt={deal.destination} loading="lazy" />
+                  <div className="deal-badge">{deal.badge}</div>
+                  <div className="deal-save">
+                    Save{" "}
+                    {Math.round(
+                      ((deal.originalPrice - deal.price) / deal.originalPrice) *
+                        100,
+                    )}
+                    %
+                  </div>
+                </div>
                 <div className="deal-body">
                   <span className="deal-tagline">{deal.tagline}</span>
                   <h3 className="deal-destination">{deal.destination}</h3>
-                  <div className="deal-rating"><Star size={14} fill="#f59e0b" stroke="#f59e0b" /><span>{deal.rating}</span><span className="deal-reviews">({deal.reviews.toLocaleString()} reviews)</span></div>
-                  <div className="deal-pricing"><span className="deal-original">${deal.originalPrice}</span><span className="deal-price">${deal.price}</span><span className="deal-per">per person</span></div>
-                  <button className="deal-btn">Book Now <ArrowRight size={16} /></button>
+                  <div className="deal-rating">
+                    <Star size={14} fill="#f59e0b" stroke="#f59e0b" />
+                    <span>{deal.rating}</span>
+                    <span className="deal-reviews">
+                      ({deal.reviews.toLocaleString()} reviews)
+                    </span>
+                  </div>
+                  <div className="deal-pricing">
+                    <span className="deal-original">${deal.originalPrice}</span>
+                    <span className="deal-price">${deal.price}</span>
+                    <span className="deal-per">per person</span>
+                  </div>
+                  <button className="deal-btn">
+                    Book Now <ArrowRight size={16} />
+                  </button>
                 </div>
               </div>
             ))}
@@ -330,13 +866,27 @@ function HomeNew() {
         <div className="container">
           <div className="stats-grid">
             {[
-              { icon: Award, value: `${stats.bookings.toLocaleString()}+`, label: 'Happy Travelers' },
-              { icon: Globe, value: `${stats.destinations}+`, label: 'Destinations' },
-              { icon: Star, value: '4.9/5', label: 'Customer Rating' },
-              { icon: Percent, value: `$${stats.savings}M+`, label: 'Total Savings' },
+              {
+                icon: Award,
+                value: `${stats.bookings.toLocaleString()}+`,
+                label: "Happy Travelers",
+              },
+              {
+                icon: Globe,
+                value: `${stats.destinations}+`,
+                label: "Destinations",
+              },
+              { icon: Star, value: "4.9/5", label: "Customer Rating" },
+              {
+                icon: Percent,
+                value: `$${stats.savings}M+`,
+                label: "Total Savings",
+              },
             ].map((stat, idx) => (
               <div key={idx} className="stat-card">
-                <div className="stat-icon-wrap"><stat.icon size={38} /></div>
+                <div className="stat-icon-wrap">
+                  <stat.icon size={38} />
+                </div>
                 <h3>{stat.value}</h3>
                 <p>{stat.label}</p>
               </div>
@@ -348,18 +898,59 @@ function HomeNew() {
       {/* ===== WHY CHOOSE US ===== */}
       <section className="why-section scroll-animate">
         <div className="container">
-          <div className="section-head centered"><h2>Why Choose SkyFare?</h2><p>We make travel simple, affordable, and unforgettable</p></div>
+          <div className="section-head centered">
+            <h2>Why Choose SkyFare?</h2>
+            <p>We make travel simple, affordable, and unforgettable</p>
+          </div>
           <div className="why-grid">
             {[
-              { icon: TrendingUp, title: 'Best Price Guarantee', desc: "Find a lower price? We'll match it and give you an extra 10% off. That's our promise.", color: '#6366f1' },
-              { icon: Shield, title: 'Secure Booking', desc: 'Your data is protected with 256-bit encryption. Book with confidence every time.', color: '#10b981' },
-              { icon: Headphones, title: '24/7 Expert Support', desc: 'Real humans, real help. Our travel experts are available around the clock.', color: '#f59e0b' },
-              { icon: Zap, title: 'Instant Confirmation', desc: 'Get your booking confirmed in seconds with instant e-tickets sent to your inbox.', color: '#ef4444' },
-              { icon: HeartHandshake, title: 'Flexible Cancellation', desc: 'Plans change. Most bookings offer free cancellation up to 24 hours before travel.', color: '#8b5cf6' },
-              { icon: Globe, title: '500+ Airlines', desc: 'Access to every major and low-cost carrier worldwide for the best selection and prices.', color: '#06b6d4' },
+              {
+                icon: TrendingUp,
+                title: "Best Price Guarantee",
+                desc: "Find a lower price? We'll match it and give you an extra 10% off. That's our promise.",
+                color: "#6366f1",
+              },
+              {
+                icon: Shield,
+                title: "Secure Booking",
+                desc: "Your data is protected with 256-bit encryption. Book with confidence every time.",
+                color: "#10b981",
+              },
+              {
+                icon: Headphones,
+                title: "24/7 Expert Support",
+                desc: "Real humans, real help. Our travel experts are available around the clock.",
+                color: "#f59e0b",
+              },
+              {
+                icon: Zap,
+                title: "Instant Confirmation",
+                desc: "Get your booking confirmed in seconds with instant e-tickets sent to your inbox.",
+                color: "#ef4444",
+              },
+              {
+                icon: HeartHandshake,
+                title: "Flexible Cancellation",
+                desc: "Plans change. Most bookings offer free cancellation up to 24 hours before travel.",
+                color: "#8b5cf6",
+              },
+              {
+                icon: Globe,
+                title: "500+ Airlines",
+                desc: "Access to every major and low-cost carrier worldwide for the best selection and prices.",
+                color: "#06b6d4",
+              },
             ].map((feature, idx) => (
               <div key={idx} className="why-card">
-                <div className="why-icon" style={{ background: `${feature.color}15`, color: feature.color }}><feature.icon size={28} /></div>
+                <div
+                  className="why-icon"
+                  style={{
+                    background: `${feature.color}15`,
+                    color: feature.color,
+                  }}
+                >
+                  <feature.icon size={28} />
+                </div>
                 <h3>{feature.title}</h3>
                 <p>{feature.desc}</p>
               </div>
@@ -371,15 +962,25 @@ function HomeNew() {
       {/* ===== TESTIMONIALS ===== */}
       <section className="testimonials-section scroll-animate">
         <div className="container">
-          <div className="section-head centered"><h2>What Our Travelers Say</h2><p>Join thousands of satisfied customers worldwide</p></div>
+          <div className="section-head centered">
+            <h2>What Our Travelers Say</h2>
+            <p>Join thousands of satisfied customers worldwide</p>
+          </div>
           <div className="testimonials-grid">
             {testimonials.map((t, idx) => (
               <div key={idx} className="testimonial-card">
-                <div className="testimonial-stars">{[...Array(t.rating)].map((_, i) => (<Star key={i} size={16} fill="#f59e0b" stroke="#f59e0b" />))}</div>
+                <div className="testimonial-stars">
+                  {[...Array(t.rating)].map((_, i) => (
+                    <Star key={i} size={16} fill="#f59e0b" stroke="#f59e0b" />
+                  ))}
+                </div>
                 <p className="testimonial-text">"{t.text}"</p>
                 <div className="testimonial-author">
                   <div className="author-avatar">{t.avatar}</div>
-                  <div><strong>{t.name}</strong><span>{t.location}</span></div>
+                  <div>
+                    <strong>{t.name}</strong>
+                    <span>{t.location}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -391,10 +992,31 @@ function HomeNew() {
       <section className="newsletter-section scroll-animate">
         <div className="container">
           <div className="newsletter-inner">
-            <div className="newsletter-text"><h2>Get Exclusive Deals in Your Inbox</h2><p>Subscribe for the latest travel deals, insider tips, and up to 50% off your next booking.</p></div>
-            <form className="newsletter-form" onSubmit={(e) => { e.preventDefault(); alert('Thank you for subscribing!'); }}>
-              <div className="newsletter-input-wrap"><Mail size={20} /><input type="email" placeholder="Enter your email address" required /></div>
-              <button type="submit" className="newsletter-btn">Subscribe <ArrowRight size={18} /></button>
+            <div className="newsletter-text">
+              <h2>Get Exclusive Deals in Your Inbox</h2>
+              <p>
+                Subscribe for the latest travel deals, insider tips, and up to
+                50% off your next booking.
+              </p>
+            </div>
+            <form
+              className="newsletter-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("Thank you for subscribing!");
+              }}
+            >
+              <div className="newsletter-input-wrap">
+                <Mail size={20} />
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  required
+                />
+              </div>
+              <button type="submit" className="newsletter-btn">
+                Subscribe <ArrowRight size={18} />
+              </button>
             </form>
           </div>
         </div>
@@ -405,10 +1027,25 @@ function HomeNew() {
         <div className="container">
           <div className="bottom-cta-inner">
             <h2>Ready to Start Your Journey?</h2>
-            <p>Our travel experts are available 24/7 to help you find the perfect deal.</p>
+            <p>
+              Our travel experts are available 24/7 to help you find the perfect
+              deal.
+            </p>
             <div className="bottom-cta-actions">
-              <a href={`tel:${(contactSettings.tfn || '+1-888-859-0441').replace(/[^0-9+]/g, '')}`} className="cta-primary"><PhoneCall size={20} />{contactSettings.tfn || '+1-888-859-0441'}</a>
-              <a href={`mailto:${contactSettings.email || 'support@skyfareinfo.com.com'}`} className="cta-secondary"><Mail size={20} />Email Us</a>
+              <a
+                href={`tel:${(contactSettings.tfn || "+1-888-859-0441").replace(/[^0-9+]/g, "")}`}
+                className="cta-primary"
+              >
+                <PhoneCall size={20} />
+                {contactSettings.tfn || "+1-888-859-0441"}
+              </a>
+              <a
+                href={`mailto:${contactSettings.email || "support@skyfareinfo.com.com"}`}
+                className="cta-secondary"
+              >
+                <Mail size={20} />
+                Email Us
+              </a>
             </div>
           </div>
         </div>

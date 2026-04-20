@@ -30,13 +30,13 @@ const AdminLogin = () => {
 		setError('');
 
 		try {
-			const response = await fetch(`${API_URL}/admin/login`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify(formData)
-			});
+			const response = await fetch(`${API_URL}/api/admin/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
 			const data = await response.json();
 

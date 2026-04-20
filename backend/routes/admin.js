@@ -45,7 +45,7 @@ let adminUsers = [
   {
     id: 1,
     name: "Admin",
-    email: "info@flyairlinebooking.com",
+    email: "info@skyfareinfo.com",
     password: "$2a$10$BaiQ2Njj1a3jsNLN9YYruu0wPKMzEQdvh0vM1iLMMhnPHhqt1TAky", // Hash: 'admin123'
   },
 ];
@@ -63,10 +63,10 @@ const updateAdminPassword = (email, newPasswordHash) => {
 // SEO data storage (in production, use database)
 let seoSettings = {
   pageTitle: 'Best Flight Deals, Hotels & Cruises | MFD Holidays',
-  metaDescription: 'Find the best flight deals, hotels, cruises, and vacation packages at unbeatable prices. Book your next adventure with flyairlinebooking.com - Your trusted travel partner.',
+  metaDescription: 'Find the best flight deals, hotels, cruises, and vacation packages at unbeatable prices. Book your next adventure with skyfareinfo.com - Your trusted travel partner.',
   keywords: 'flight deals, cheap flights, hotels, cruises, vacation packages, travel deals, airline tickets',
-  ogImage: 'https://flyairlinebooking.com/og-image.jpg',
-  canonicalUrl: 'https://flyairlinebooking.com'
+  ogImage: 'https://skyfareinfo.com/og-image.jpg',
+  canonicalUrl: 'https://skyfareinfo.com'
 };
 
 // Website content storage
@@ -74,7 +74,7 @@ let websiteContent = {
   heroTitle: '',
   heroSubtitle: '',
   aboutText: '',
-  contactEmail: 'support@flyairlinebooking.com',
+  contactEmail: 'support@skyfareinfo.com',
   contactPhone: '+1-844-480-0252',
   contactAddress: '1309 Coffeen Ave STE 1200, Sheridan, WY 82801, USA'
 };
@@ -129,7 +129,7 @@ let gdsSettings = {
 // Contact Settings storage
 let contactSettings = {
   tfn: '+1-888-859-0441',
-  email: 'support@flyairlinebooking.com',
+  email: 'support@skyfareinfo.com',
   address: '1309 Coffeen Ave STE 1200, Sheridan, WY 82801, USA',
   workingHours: 'Mon-Sun 24/7'
 };
@@ -138,7 +138,7 @@ let contactSettings = {
 let gscSettings = {
   clientId: process.env.GOOGLE_CLIENT_ID || '',
   clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-  siteUrl: process.env.GSC_SITE_URL || 'https://flyairlinebooking.com',
+  siteUrl: process.env.GSC_SITE_URL || 'https://skyfareinfo.com',
   enabled: false,
   connected: false
 };
@@ -411,7 +411,7 @@ router.get('/seo/analytics', verifyAdminToken, async (req, res) => {
 // SEO Site Audit
 router.get('/seo/audit', verifyAdminToken, async (req, res) => {
   try {
-    const siteUrl = process.env.GSC_SITE_URL || 'https://flyairlinebooking.com';
+    const siteUrl = process.env.GSC_SITE_URL || 'https://skyfareinfo.com';
     
     const auditResults = {
       score: 85,
@@ -784,7 +784,7 @@ router.post('/blog/ai/generate', verifyAdminToken, async (req, res) => {
     const aiPost = await blogAI.generateBlogPost();
     
     // Generate live URL for the blog post
-    const blogUrl = `https://flyairlinebooking.com/blog/${aiPost.slug}`;
+    const blogUrl = `https://skyfareinfo.com/blog/${aiPost.slug}`;
     
     const newPost = {
       id: blogPosts.length + 1,
@@ -825,7 +825,7 @@ router.post('/blog/ai/generate-bulk', verifyAdminToken, async (req, res) => {
       const aiPost = await blogAI.generateBlogPost();
       
       // Generate live URL for the blog post
-      const blogUrl = `https://flyairlinebooking.com/blog/${aiPost.slug}`;
+      const blogUrl = `https://skyfareinfo.com/blog/${aiPost.slug}`;
       
       const newPost = {
         id: blogPosts.length + 1,

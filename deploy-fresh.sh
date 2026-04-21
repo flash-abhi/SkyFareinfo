@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Complete fresh deployment script for flyairlinebooking VPS
+# Complete fresh deployment script for skyfareinfo VPS
 # Run this on your VPS as: bash deploy-fresh.sh
 
 set -e  # Exit on any error
 
 VPS_IP="82.29.197.137"
-DOMAIN="flyairlinebooking.com"
-DEPLOY_DIR="/var/www/flyairlinebooking"
-PM2_NAME="flyairlinebooking-backend"
+DOMAIN="skyfareinfo.com"
+DEPLOY_DIR="/var/www/skyfareinfo"
+PM2_NAME="skyfareinfo-backend"
 BACKEND_PORT=5001
 
 echo "🚀 Starting fresh deployment on $VPS_IP..."
@@ -22,15 +22,15 @@ pm2 delete flight-backend 2>/dev/null || true
 # 2. Backup and remove old directory
 echo "🗑️  Removing old deployment..."
 cd /var/www
-rm -rf flyairlinebooking.backup 2>/dev/null || true
-mv flyairlinebooking flyairlinebooking.backup 2>/dev/null || true
+rm -rf skyfareinfo.backup 2>/dev/null || true
+mv skyfareinfo skyfareinfo.backup 2>/dev/null || true
 rm -rf flight.backup 2>/dev/null || true
 mv flight flight.backup 2>/dev/null || true
 
 # 3. Clone fresh from GitHub
 echo "📥 Cloning from GitHub..."
-git clone git@github.com:rawatsachin9-arch/flyairlinebooking.git
-cd flyairlinebooking
+git clone git@github.com:rawatsachin9-arch/skyfareinfo.git
+cd skyfareinfo
 
 # 4. Install ALL dependencies (including backend)
 echo "📦 Installing dependencies..."
@@ -70,7 +70,7 @@ server {
     root /var/www/lockmyfare/build;
     index index.html;
 
-    server_name flyairlinebooking.com www.flyairlinebooking.com;
+    server_name skyfareinfo.com www.skyfareinfo.com;
 
     # Gzip compression
     gzip on;

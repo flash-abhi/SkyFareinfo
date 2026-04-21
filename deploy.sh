@@ -2,8 +2,8 @@
 
 echo "🚀 Starting deployment..."
 
-DEPLOY_DIR="/var/www/flyairlinebooking"
-PM2_NAME="flyairlinebooking-backend"
+DEPLOY_DIR="/var/www/skyfareinfo"
+PM2_NAME="skyfareinfo-backend"
 
 # Navigate to project directory
 cd $DEPLOY_DIR || { echo "❌ Directory not found"; exit 1; }
@@ -29,4 +29,4 @@ echo "🌐 Reloading Nginx..."
 sudo systemctl reload nginx
 
 echo "✅ Deployment complete!"
-echo "🌍 Your app is live at http://flyairlinebooking.com"
+echo "🌍 Your app is live at http://skyfareinfo.com"

@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'flyairlinebooking-backend',
+    name: 'skyfareinfo-backend',
     script: './server.js',
     instances: 1,
     autorestart: true,

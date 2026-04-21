@@ -196,7 +196,7 @@ function AdminDashboard() {
     logoUrl: '/logo.svg',
     faviconUrl: '/favicon.ico',
     tfn: '+1-888-859-0441',
-    email: 'support@flyairlinebooking.com',
+    email: 'support@skyfareinfo.com',
     workingHours: 'Mon-Sun 24/7',
     billingAddress: {
       company: 'SkyFare, Inc.',
@@ -214,7 +214,7 @@ function AdminDashboard() {
       footerBg: 'linear-gradient(135deg, #2d3748 0%, #1a202c 100%)',
       footerText: '#e2e8f0'
     },
-    siteUrl: 'https://flyairlinebooking.com'
+    siteUrl: 'https://skyfareinfo.com'
   });
   const [settingsTab, setSettingsTab] = useState('general');
   const [logoUploading, setLogoUploading] = useState(false);
@@ -244,7 +244,7 @@ function AdminDashboard() {
       
       if (activeSeoTool === 'backlinks' && seoToolData.backlinks.total === 0) {
         try {
-          const response = await fetch(`${API_URL}/api/seo/backlinks?domain=flyairlinebooking.com`, {
+          const response = await fetch(`${API_URL}/api/seo/backlinks?domain=skyfareinfo.com`, {
             headers: { 'Authorization': `Bearer ${token}` }
           });
           if (response.ok) {
@@ -1150,7 +1150,7 @@ function AdminDashboard() {
       console.log('AI Blog Response:', data);
       
       if (data.success) {
-        const blogUrl = data.url || `https://flyairlinebooking.com/blog/${data.post.slug}`;
+        const blogUrl = data.url || `https://skyfareinfo.com/blog/${data.post.slug}`;
         alert(`✅ AI Blog Post Generated!\n\nTitle: ${data.post.title}\n\n📍 Live URL:\n${blogUrl}\n\nThe blog post has been automatically created and published.\n\nClick OK to copy the URL to clipboard.`);
         
         // Copy URL to clipboard
@@ -1200,7 +1200,7 @@ function AdminDashboard() {
       
       if (data.success) {
         const blogUrls = data.posts ? data.posts.map(post => 
-          `https://flyairlinebooking.com/blog/${post.slug}`
+          `https://skyfareinfo.com/blog/${post.slug}`
         ).join('\n') : '';
         
         const message = `✅ Successfully generated ${data.count} AI blog posts!\n\nAll posts have been automatically created and published.\n\n${blogUrls ? '📍 Live URLs:\n' + blogUrls : ''}`;
@@ -2491,8 +2491,8 @@ function AdminDashboard() {
                           <input
                             type="url"
                             name="siteUrl"
-                            placeholder="https://flyairlinebooking.com"
-                            defaultValue="https://flyairlinebooking.com"
+                            placeholder="https://skyfareinfo.com"
+                            defaultValue="https://skyfareinfo.com"
                             required
                           />
                         </div>
@@ -2509,7 +2509,7 @@ function AdminDashboard() {
                           <li>Create/Select a project</li>
                           <li>Enable Search Console API</li>
                           <li>Create OAuth 2.0 Client ID</li>
-                          <li>Add redirect URI: <code>https://flyairlinebooking.com/api/gsc/oauth2callback</code></li>
+                          <li>Add redirect URI: <code>https://skyfareinfo.com/api/gsc/oauth2callback</code></li>
                           <li>Copy Client ID and Client Secret here</li>
                         </ol>
                       </div>
@@ -3079,7 +3079,7 @@ function AdminDashboard() {
                   onClick={async () => {
                     try {
                       const token = localStorage.getItem('adminToken');
-                      const response = await fetch(`${API_URL}/api/seo/backlinks?domain=flyairlinebooking.com`, {
+                      const response = await fetch(`${API_URL}/api/seo/backlinks?domain=skyfareinfo.com`, {
                         headers: { 'Authorization': `Bearer ${token}` }
                       });
                       const data = await response.json();
@@ -3664,7 +3664,7 @@ function AdminDashboard() {
                   type="text"
                   value={seoData.ogImage}
                   onChange={(e) => setSeoData({...seoData, ogImage: e.target.value})}
-                  placeholder="https://flyairlinebooking.com/og-image.jpg"
+                  placeholder="https://skyfareinfo.com/og-image.jpg"
                 />
               </div>
 
@@ -3674,7 +3674,7 @@ function AdminDashboard() {
                   type="text"
                   value={seoData.canonicalUrl}
                   onChange={(e) => setSeoData({...seoData, canonicalUrl: e.target.value})}
-                  placeholder="https://flyairlinebooking.com"
+                  placeholder="https://skyfareinfo.com"
                 />
               </div>
 
@@ -4113,7 +4113,7 @@ function AdminDashboard() {
                   type="email"
                   value={content.contactEmail}
                   onChange={(e) => setContent({...content, contactEmail: e.target.value})}
-                  placeholder="support@flyairlinebooking.com"
+                  placeholder="support@skyfareinfo.com"
                 />
               </div>
 
@@ -4335,12 +4335,12 @@ function AdminDashboard() {
                           <span className="post-meta">By {post.author} • {new Date(post.createdAt).toLocaleDateString()}</span>
                           {post.slug && (
                             <div className="blog-url">
-                              <a href={`https://flyairlinebooking.com/blog/${post.slug}`} target="_blank" rel="noopener noreferrer" className="url-link">
-                                📍 flyairlinebooking.com/blog/{post.slug}
+                              <a href={`https://skyfareinfo.com/blog/${post.slug}`} target="_blank" rel="noopener noreferrer" className="url-link">
+                                📍 skyfareinfo.com/blog/{post.slug}
                               </a>
                               <button 
                                 onClick={() => {
-                                  const url = `https://flyairlinebooking.com/blog/${post.slug}`;
+                                  const url = `https://skyfareinfo.com/blog/${post.slug}`;
                                   navigator.clipboard.writeText(url).then(() => alert('URL copied to clipboard!'));
                                 }}
                                 className="copy-url-btn"
@@ -5341,7 +5341,7 @@ function AdminDashboard() {
                       type="url"
                       value={siteSettingsData.siteUrl}
                       onChange={(e) => setSiteSettingsData({...siteSettingsData, siteUrl: e.target.value})}
-                      placeholder="https://flyairlinebooking.com"
+                      placeholder="https://skyfareinfo.com"
                     />
                   </div>
                   <div className="form-group full-width">
@@ -5390,7 +5390,7 @@ function AdminDashboard() {
                       type="email"
                       value={siteSettingsData.email}
                       onChange={(e) => setSiteSettingsData({...siteSettingsData, email: e.target.value})}
-                      placeholder="support@flyairlinebooking.com"
+                      placeholder="support@skyfareinfo.com"
                       required
                     />
                     <small>Customer support email shown across the website</small>
@@ -5590,7 +5590,7 @@ function AdminDashboard() {
                       type="url"
                       value={siteSettingsData.socialLinks.facebook}
                       onChange={(e) => setSiteSettingsData({...siteSettingsData, socialLinks: {...siteSettingsData.socialLinks, facebook: e.target.value}})}
-                      placeholder="https://facebook.com/flyairlinebooking"
+                      placeholder="https://facebook.com/skyfareinfo"
                     />
                   </div>
                   <div className="form-group">
@@ -5599,7 +5599,7 @@ function AdminDashboard() {
                       type="url"
                       value={siteSettingsData.socialLinks.twitter}
                       onChange={(e) => setSiteSettingsData({...siteSettingsData, socialLinks: {...siteSettingsData.socialLinks, twitter: e.target.value}})}
-                      placeholder="https://twitter.com/flyairlinebooking"
+                      placeholder="https://twitter.com/skyfareinfo"
                     />
                   </div>
                   <div className="form-group">
@@ -5608,7 +5608,7 @@ function AdminDashboard() {
                       type="url"
                       value={siteSettingsData.socialLinks.instagram}
                       onChange={(e) => setSiteSettingsData({...siteSettingsData, socialLinks: {...siteSettingsData.socialLinks, instagram: e.target.value}})}
-                      placeholder="https://instagram.com/flyairlinebooking"
+                      placeholder="https://instagram.com/skyfareinfo"
                     />
                   </div>
                   <div className="form-group">
@@ -5617,7 +5617,7 @@ function AdminDashboard() {
                       type="url"
                       value={siteSettingsData.socialLinks.linkedin}
                       onChange={(e) => setSiteSettingsData({...siteSettingsData, socialLinks: {...siteSettingsData.socialLinks, linkedin: e.target.value}})}
-                      placeholder="https://linkedin.com/company/flyairlinebooking"
+                      placeholder="https://linkedin.com/company/skyfareinfo"
                     />
                   </div>
                 </div>

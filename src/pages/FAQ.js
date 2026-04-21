@@ -12,7 +12,7 @@ function FAQ() {
       category: "Booking & Payment",
       questions: [
         {
-          q: "How do I book a flight on flyairlinebooking.com?",
+          q: "How do I book a flight on skyfareinfo.com?",
           a: "Simply enter your travel details (origin, destination, dates, passengers) on our homepage, click 'Search Flights,' review available options, select your preferred flight, and complete the booking process with your payment information."
         },
         {
@@ -20,7 +20,7 @@ function FAQ() {
           a: "We accept all major credit cards (Visa, MasterCard, American Express, Discover), debit cards, and PayPal. All transactions are processed securely with industry-standard encryption."
         },
         {
-          q: "Is it safe to book through flyairlinebooking.com?",
+          q: "Is it safe to book through skyfareinfo.com?",
           a: "Absolutely! We use SSL encryption and PCI DSS-compliant payment processing to ensure your personal and financial information is completely secure."
         },
         {
@@ -38,7 +38,7 @@ function FAQ() {
         },
         {
           q: "How do I change my flight dates?",
-          a: `Contact our customer support team at ${contactSettings.tfn} or email support@flyairlinebooking.com. Changes are subject to availability and may incur fare differences and change fees from the airline.`
+          a: `Contact our customer support team at ${contactSettings.tfn} or email support@skyfareinfo.com. Changes are subject to availability and may incur fare differences and change fees from the airline.`
         },
         {
           q: "What is your refund policy?",
@@ -93,7 +93,7 @@ function FAQ() {
       questions: [
         {
           q: "How can I contact customer support?",
-          a: `Our 24/7 customer support team is available at ${contactSettings.tfn} or email support@flyairlinebooking.com. We typically respond to emails within 2-4 hours.`
+          a: `Our 24/7 customer support team is available at ${contactSettings.tfn} or email support@skyfareinfo.com. We typically respond to emails within 2-4 hours.`
         },
         {
           q: "What if I have issues during my trip?",
@@ -175,7 +175,7 @@ function FAQ() {
           <p>Our customer support team is available 24/7 to help you.</p>
           <div className="contact-buttons">
             <a href="tel:8444800252" className="btn-primary">Call: 844-480-0252</a>
-            <a href="mailto:support@flyairlinebooking.com" className="btn-secondary">Email Support</a>
+            <a href="mailto:support@skyfareinfo.com" className="btn-secondary">Email Support</a>
           </div>
         </div>
       </div>

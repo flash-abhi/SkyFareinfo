@@ -89,7 +89,7 @@ const AirlineCustomerServiceNumber = () => {
           content={`Need airline customer service? Call ${tfn} for 24/7 flight booking assistance, reservations, cancellations, refunds, and travel support. Speak to a live agent now!`}
         />
         <meta name="keywords" content="airline customer service number, airline phone number, flight booking help, airline reservations, airline support, travel assistance, flight cancellation, airline refund" />
-        <link rel="canonical" href="https://flyairlinebooking.com/airline-customer-service-number" />
+        <link rel="canonical" href="https://skyfareinfo.com/airline-customer-service-number" />
         <meta property="og:title" content={`Airline Customer Service Number | Call ${tfn}`} />
         <meta property="og:description" content="Get 24/7 airline customer service support. Book flights, change reservations, request refunds, and more." />
         <meta property="og:type" content="website" />
@@ -98,8 +98,8 @@ const AirlineCustomerServiceNumber = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "SkyFare - Airline Customer Service",
-            "url": "https://flyairlinebooking.com/airline-customer-service-number",
-            "logo": "https://flyairlinebooking.com/logo.svg",
+            "url": "https://skyfareinfo.com/airline-customer-service-number",
+            "logo": "https://skyfareinfo.com/logo.svg",
             "contactPoint": [
               {
                 "@type": "ContactPoint",

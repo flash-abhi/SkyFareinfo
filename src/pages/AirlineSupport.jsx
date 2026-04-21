@@ -19,7 +19,7 @@ const AirlineSupport = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "SkyFare Support",
-            "url": "https://flyairlinebooking.com/",
+            "url": "https://skyfareinfo.com/",
             "contactPoint": [
               {
                 "@type": "ContactPoint",

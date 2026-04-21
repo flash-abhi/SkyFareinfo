@@ -10,7 +10,7 @@ export const ContactProvider = ({ children }) => {
     logoUrl: '/logo.svg',
     faviconUrl: '/favicon.ico',
     tfn: '+1-888-859-0441',
-    email: 'support@flyairlinebooking.com',
+    email: 'support@skyfareinfo.com',
     workingHours: 'Mon-Sun 24/7',
     billingAddress: {
       company: 'MFD Holidays, Inc.',
@@ -28,7 +28,7 @@ export const ContactProvider = ({ children }) => {
       footerBg: 'linear-gradient(135deg, #2d3748 0%, #1a202c 100%)',
       footerText: '#e2e8f0'
     },
-    siteUrl: 'https://flyairlinebooking.com',
+    siteUrl: 'https://skyfareinfo.com',
     address: '1309 Coffeen Ave STE 1200, Sheridan, WY 82801, USA'
   });
   const [loading, setLoading] = useState(true);

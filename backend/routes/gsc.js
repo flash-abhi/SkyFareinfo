@@ -8,7 +8,7 @@ const axios = require('axios');
 // Store GSC data in memory (use database in production)
 let gscData = {
   connected: false,
-  siteUrl: 'https://flyairlinebooking.com',
+  siteUrl: 'https://skyfareinfo.com',
   lastSync: null,
   performance: {
     clicks: 0,
@@ -178,21 +178,21 @@ router.get('/sitemaps', verifyAdminToken, async (req, res) => {
       success: true,
       data: [
         {
-          path: 'https://flyairlinebooking.com/sitemap.xml',
+          path: 'https://skyfareinfo.com/sitemap.xml',
           lastSubmitted: '2025-11-20',
           status: 'Success',
           urlsSubmitted: 156,
           urlsIndexed: 143
         },
         {
-          path: 'https://flyairlinebooking.com/sitemap-airlines.xml',
+          path: 'https://skyfareinfo.com/sitemap-airlines.xml',
           lastSubmitted: '2025-11-20',
           status: 'Success',
           urlsSubmitted: 15,
           urlsIndexed: 15
         },
         {
-          path: 'https://flyairlinebooking.com/sitemap-blog.xml',
+          path: 'https://skyfareinfo.com/sitemap-blog.xml',
           lastSubmitted: '2025-11-28',
           status: 'Pending',
           urlsSubmitted: 23,
@@ -284,7 +284,7 @@ router.post('/connect', verifyAdminToken, async (req, res) => {
     
     // In production, initiate OAuth2 flow here
     gscData.connected = true;
-    gscData.siteUrl = siteUrl || 'https://flyairlinebooking.com';
+    gscData.siteUrl = siteUrl || 'https://skyfareinfo.com';
     gscData.lastSync = new Date().toISOString();
 
     res.json({

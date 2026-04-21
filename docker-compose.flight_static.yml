@@ -8,8 +8,8 @@ services:
     volumes:
       - ./build:/usr/share/nginx/html:ro
     environment:
-      - VIRTUAL_HOST=flyairlinebooking.com
-      - LETSENCRYPT_HOST=flyairlinebooking.com
+      - VIRTUAL_HOST=skyfareinfo.com
+      - LETSENCRYPT_HOST=skyfareinfo.com
       - VIRTUAL_PORT=80
     networks:
       - proxy-tier

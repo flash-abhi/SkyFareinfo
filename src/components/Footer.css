@@ -404,6 +404,15 @@
   color: #fff;
 }
 
+/* disclaimer */
+
+.dis-title {
+  color: rgb(49, 169, 190);
+  font-size: 18px;
+  font-weight: 700;
+  margin: 40px 0 16px;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .footer-top {
